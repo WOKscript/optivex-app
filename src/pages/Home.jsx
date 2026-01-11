@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useRef } from 'react'; // 1. Import useRef
 import { Link } from 'react-router-dom';
 
 const Home = () => {
+  // 2. Create a reference for the scroll container
+  const scrollContainerRef = useRef(null);
+
+  // 3. Create the scroll function
+  const scroll = (direction) => {
+    const container = scrollContainerRef.current;
+    if (container) {
+      // Scroll amount: 400px (approx card width)
+      // If left, subtract 400. If right, add 400.
+      const scrollAmount = direction === 'left' ? -400 : 400;
+      
+      container.scrollBy({
+        left: scrollAmount,
+        behavior: 'smooth' // Makes it slide nicely
+      });
+    }
+  };
+
   return (
     <>
       {/* HERO SECTION */}
@@ -68,7 +86,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* SERVICES SECTION (UPDATED) */}
+      {/* SERVICES SECTION */}
       <section className="px-6 lg:px-12 py-24 bg-black/10" id="services">
         <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
@@ -76,10 +94,8 @@ const Home = () => {
                 <h3 className="text-white text-4xl lg:text-5xl font-black mb-6">Comprehensive Services</h3>
                 <p className="text-white/50 max-w-2xl mx-auto">Leveraging deep industry knowledge to deliver specialized technology solutions that empower your business growth.</p>
             </div>
-            {/* UPDATED TO 3 COLUMNS FOR YOUR 3 SERVICES */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                
-                {/* Service 1: Static Websites */}
+                {/* Service 1 */}
                 <div className="p-8 rounded-2xl border border-slate-border bg-slate-surface hover:bg-slate-surface/80 hover:border-primary/30 transition-all group">
                     <span className="material-symbols-outlined text-4xl text-primary mb-6 block group-hover:scale-110 transition-transform">devices</span>
                     <h4 className="text-xl font-bold mb-3">Static Websites</h4>
@@ -88,8 +104,7 @@ const Home = () => {
                     </p>
                     <div className="h-1 w-0 bg-primary group-hover:w-full transition-all duration-500"></div>
                 </div>
-
-                {/* Service 2: Admin & Web Systems */}
+                {/* Service 2 */}
                 <div className="p-8 rounded-2xl border border-slate-border bg-slate-surface hover:bg-slate-surface/80 hover:border-primary/30 transition-all group">
                     <span className="material-symbols-outlined text-4xl text-primary mb-6 block group-hover:scale-110 transition-transform">admin_panel_settings</span>
                     <h4 className="text-xl font-bold mb-3">Professional Admin & Web Systems</h4>
@@ -98,8 +113,7 @@ const Home = () => {
                     </p>
                     <div className="h-1 w-0 bg-primary group-hover:w-full transition-all duration-500"></div>
                 </div>
-
-                {/* Service 3: IT Consulting */}
+                {/* Service 3 */}
                 <div className="p-8 rounded-2xl border border-slate-border bg-slate-surface hover:bg-slate-surface/80 hover:border-primary/30 transition-all group">
                     <span className="material-symbols-outlined text-4xl text-primary mb-6 block group-hover:scale-110 transition-transform">tips_and_updates</span>
                     <h4 className="text-xl font-bold mb-3">IT Consulting</h4>
@@ -108,12 +122,11 @@ const Home = () => {
                     </p>
                     <div className="h-1 w-0 bg-primary group-hover:w-full transition-all duration-500"></div>
                 </div>
-
             </div>
         </div>
       </section>
 
-      {/* PORTFOLIO SECTION (UPDATED) */}
+      {/* PORTFOLIO SECTION (FIXED SLIDER) */}
       <section className="py-24 bg-background-dark overflow-hidden" id="projects">
         <div className="max-w-7xl mx-auto px-6 lg:px-12 mb-16">
             <div className="flex flex-col md:flex-row md:items-end justify-between gap-8">
@@ -122,21 +135,33 @@ const Home = () => {
                     <h3 className="text-white text-4xl lg:text-5xl font-black leading-tight">Featured Projects</h3>
                 </div>
                 <div className="flex gap-4">
-                    <button className="size-14 rounded-full border border-slate-border flex items-center justify-center text-white/50 hover:text-primary hover:border-primary transition-all">
+                    {/* 4. Add onClick handler for Left Button */}
+                    <button 
+                        onClick={() => scroll('left')} 
+                        className="size-14 rounded-full border border-slate-border flex items-center justify-center text-white/50 hover:text-primary hover:border-primary transition-all active:scale-95"
+                    >
                         <span className="material-symbols-outlined">chevron_left</span>
                     </button>
-                    <button className="size-14 rounded-full border border-slate-border flex items-center justify-center text-white/50 hover:text-primary hover:border-primary transition-all">
+                    {/* 4. Add onClick handler for Right Button */}
+                    <button 
+                        onClick={() => scroll('right')} 
+                        className="size-14 rounded-full border border-slate-border flex items-center justify-center text-white/50 hover:text-primary hover:border-primary transition-all active:scale-95"
+                    >
                         <span className="material-symbols-outlined">chevron_right</span>
                     </button>
                 </div>
             </div>
         </div>
-        <div className="flex gap-8 overflow-x-auto px-6 lg:px-[calc((100vw-80rem)/2+3rem)] pb-12 custom-scrollbar snap-x">
+        
+        {/* 5. Attach the ref to this container */}
+        <div 
+            ref={scrollContainerRef} 
+            className="flex gap-8 overflow-x-auto px-6 lg:px-[calc((100vw-80rem)/2+3rem)] pb-12 custom-scrollbar snap-x scroll-smooth"
+        >
             
             {/* Project 1 */}
             <div className="min-w-[400px] md:min-w-[600px] lg:min-w-[800px] snap-center group">
                 <div className="relative h-[450px] lg:h-[550px] rounded-3xl overflow-hidden mb-8 border border-slate-border/50">
-                    {/* IMAGE CHANGE HERE: */}
                     <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{backgroundImage: 'url("/images/storystream.png")'}}></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 p-10 w-full">
@@ -153,7 +178,6 @@ const Home = () => {
              {/* Project 2 */}
              <div className="min-w-[400px] md:min-w-[600px] lg:min-w-[800px] snap-center group">
                 <div className="relative h-[450px] lg:h-[550px] rounded-3xl overflow-hidden mb-8 border border-slate-border/50">
-                    {/* IMAGE CHANGE HERE: */}
                     <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{backgroundImage: 'url("/images/Lumaframework.png")'}}></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 p-10 w-full">
@@ -170,7 +194,6 @@ const Home = () => {
             {/* Project 3 */}
              <div className="min-w-[400px] md:min-w-[600px] lg:min-w-[800px] snap-center group">
                 <div className="relative h-[450px] lg:h-[550px] rounded-3xl overflow-hidden mb-8 border border-slate-border/50">
-                    {/* IMAGE CHANGE HERE: */}
                     <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{backgroundImage: 'url("/images/IEMS.png")'}}></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 p-10 w-full">
@@ -187,7 +210,6 @@ const Home = () => {
             {/* Project 4 */}
              <div className="min-w-[400px] md:min-w-[600px] lg:min-w-[800px] snap-center group">
                 <div className="relative h-[450px] lg:h-[550px] rounded-3xl overflow-hidden mb-8 border border-slate-border/50">
-                    {/* IMAGE CHANGE HERE: */}
                     <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{backgroundImage: 'url("/images/CateringSystem.png")'}}></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 p-10 w-full">
@@ -204,7 +226,6 @@ const Home = () => {
             {/* Project 5 */}
              <div className="min-w-[400px] md:min-w-[600px] lg:min-w-[800px] snap-center group">
                 <div className="relative h-[450px] lg:h-[550px] rounded-3xl overflow-hidden mb-8 border border-slate-border/50">
-                    {/* IMAGE CHANGE HERE: */}
                     <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{backgroundImage: 'url("/images/DPIS.png")'}}></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 p-10 w-full">
@@ -221,7 +242,6 @@ const Home = () => {
             {/* Project 6 */}
              <div className="min-w-[400px] md:min-w-[600px] lg:min-w-[800px] snap-center group">
                 <div className="relative h-[450px] lg:h-[550px] rounded-3xl overflow-hidden mb-8 border border-slate-border/50">
-                    {/* IMAGE CHANGE HERE: */}
                     <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{backgroundImage: 'url("/images/vms.png")'}}></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 p-10 w-full">
@@ -238,7 +258,6 @@ const Home = () => {
             {/* Project 7 */}
              <div className="min-w-[400px] md:min-w-[600px] lg:min-w-[800px] snap-center group">
                 <div className="relative h-[450px] lg:h-[550px] rounded-3xl overflow-hidden mb-8 border border-slate-border/50">
-                    {/* IMAGE CHANGE HERE: */}
                     <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{backgroundImage: 'url("/images/capstonevault.png")'}}></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 p-10 w-full">
@@ -255,7 +274,6 @@ const Home = () => {
             {/* Project 8 */}
              <div className="min-w-[400px] md:min-w-[600px] lg:min-w-[800px] snap-center group">
                 <div className="relative h-[450px] lg:h-[550px] rounded-3xl overflow-hidden mb-8 border border-slate-border/50">
-                    {/* IMAGE CHANGE HERE: */}
                     <div className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" style={{backgroundImage: 'url("/images/evogolf.png")'}}></div>
                     <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/20 to-transparent"></div>
                     <div className="absolute bottom-0 left-0 p-10 w-full">
@@ -270,51 +288,6 @@ const Home = () => {
             </div>
         </div>
       </section>
-
-      {/* EVOLUTION SECTION (ADDED) */}
-      {/* { <section className="px-6 lg:px-12 py-24 bg-slate-surface/30" id="evolution">
-        <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-20">
-                <h2 className="text-primary text-sm font-bold uppercase tracking-widest mb-3">The Journey</h2>
-                <h3 className="text-white text-4xl lg:text-5xl font-black">Our Evolution</h3>
-            </div>
-            <div className="relative">
-                <div className="absolute left-1/2 -translate-x-1/2 h-full w-px bg-slate-border hidden md:block"></div>
-                <div className="space-y-16">
-              
-                    <div className="relative flex flex-col md:flex-row items-center gap-8 md:gap-0">
-                        <div className="md:w-1/2 md:pr-16 text-center md:text-right">
-                            <span className="text-primary font-bold text-lg mb-2 block">2021</span>
-                            <h4 className="text-xl font-bold text-white mb-3">Genesis</h4>
-                            <p className="text-white/60 text-sm max-w-sm ml-auto">Founded with a vision to simplify complex infrastructure for emerging startups.</p>
-                        </div>
-                        <div className="absolute left-1/2 -translate-x-1/2 size-4 rounded-full bg-primary ring-4 ring-primary/20 hidden md:block"></div>
-                        <div className="md:w-1/2 md:pl-16"></div>
-                    </div>
-               
-                    <div className="relative flex flex-col md:flex-row items-center gap-8 md:gap-0">
-                        <div className="md:w-1/2 md:pr-16"></div>
-                        <div className="absolute left-1/2 -translate-x-1/2 size-4 rounded-full bg-primary ring-4 ring-primary/20 hidden md:block"></div>
-                        <div className="md:w-1/2 md:pl-16 text-center md:text-left">
-                            <span className="text-primary font-bold text-lg mb-2 block">2022</span>
-                            <h4 className="text-xl font-bold text-white mb-3">Scaling Vertically</h4>
-                            <p className="text-white/60 text-sm max-w-sm">Expanded service offerings to include specialized Cybersecurity and Cloud DevOps.</p>
-                        </div>
-                    </div>
-        
-                    <div className="relative flex flex-col md:flex-row items-center gap-8 md:gap-0">
-                        <div className="md:w-1/2 md:pr-16 text-center md:text-right">
-                            <span className="text-primary font-bold text-lg mb-2 block">2023</span>
-                            <h4 className="text-xl font-bold text-white mb-3">Global Reach</h4>
-                            <p className="text-white/60 text-sm max-w-sm ml-auto">Onboarded 50+ enterprise clients across three continents, opening our second HQ.</p>
-                        </div>
-                        <div className="absolute left-1/2 -translate-x-1/2 size-4 rounded-full bg-primary ring-4 ring-primary/20 hidden md:block"></div>
-                        <div className="md:w-1/2 md:pl-16"></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-      </section> } */}
 
       {/* FOUNDERS SECTION */}
       <section className="px-6 lg:px-12 py-24 bg-background-dark">
