@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .glass-header {
+    background: rgba(15, 23, 20, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(43, 238, 121, 0.1);
+  }
+  
+  .emerald-glow {
+    box-shadow: 0 0 20px rgba(43, 238, 121, 0.15);
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    height: 6px;
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: #1a241e;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #2bee79;
+    border-radius: 10px;
+  }
+  
+  .masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-auto-rows: 250px;
+    gap: 1.5rem;
+  }
+  .masonry-item-tall {
+    grid-row: span 2;
+  }
+}
+
+body {
+    @apply bg-background-dark font-display text-white selection:bg-primary selection:text-background-dark;
+}
