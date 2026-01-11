@@ -326,7 +326,7 @@ const Home = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
                 <div className="bg-slate-surface border border-slate-border rounded-3xl p-8 flex flex-col lg:flex-row gap-8 hover:border-primary/30 transition-all group">
                     <div className="size-32 lg:size-40 rounded-2xl overflow-hidden bg-background-dark shrink-0">
-                        <img alt="Founder" className="w-full h-full object-cover" src="/public/images/cto-jp.png"/>
+                        <img alt="Founder" className="w-full h-full object-cover" src="/images/cto-jp.png"/>
                     </div>
                     <div className="flex flex-col justify-between">
                         <div>
@@ -342,7 +342,7 @@ const Home = () => {
                 </div>
                 <div className="bg-slate-surface border border-slate-border rounded-3xl p-8 flex flex-col lg:flex-row gap-8 hover:border-primary/30 transition-all group">
                     <div className="size-32 lg:size-40 rounded-2xl overflow-hidden bg-background-dark shrink-0">
-                        <img alt="Founder" className="w-full h-full object-cover" src="/public/images/ceo-lorenz.png"/>
+                        <img alt="Founder" className="w-full h-full object-cover" src="/images/ceo-lorenz.png"/>
                     </div>
                     <div className="flex flex-col justify-between">
                         <div>
