@@ -1,21 +1,38 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Building = () => {
+  // Disable right-click
+  useEffect(() => {
+    const handleContextMenu = (e) => {
+      e.preventDefault();
+    };
+
+    document.addEventListener('contextmenu', handleContextMenu);
+
+    return () => {
+      document.removeEventListener('contextmenu', handleContextMenu);
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-black flex items-center justify-center px-6">
+    <div 
+      className="min-h-screen bg-black flex items-center justify-center px-6 select-none"
+      onContextMenu={(e) => e.preventDefault()}
+    >
       <div className="text-center flex flex-col items-center">
         {/* GIF Container */}
         <div className="flex justify-center">
           <img 
             src="/images/sss-logo.gif" 
             alt="Building in progress"
-            className="max-w-[300px] md:max-w-[400px] lg:max-w-[500px] w-full h-auto opacity-90"
+            className="max-w-[300px] md:max-w-[400px] lg:max-w-[500px] w-full h-auto opacity-90 pointer-events-none"
+            draggable="false"
           />
         </div>
 
         {/* Text - positioned close below GIF */}
         <div className="space-y-4 -mt-8 md:-mt-12 lg:-mt-16 relative z-10 font-['Montserrat',_sans-serif]">
-          <h1 className="text-white/90 text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
+          <h1 className="text-white/90 text-3xl md:text-4xl lg:text-5xl font-black tracking-tight">
             A Fresh Identity is Arriving Soon.
           </h1>
           <div className="flex items-center justify-center gap-2 text-white/50">
