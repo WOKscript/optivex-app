@@ -16,7 +16,7 @@ const Layout = () => {
                 className="h-10 w-10 object-cover" 
             />
 
-            <h2 className="text-white text-xl font-extrabold tracking-tight uppercase">Optivex</h2>
+            <h2 className="text-white text-xl font-extrabold tracking-tight uppercase">Senari</h2>
           </Link>
           
           {/* NAV */}
@@ -49,14 +49,14 @@ const Layout = () => {
                 <path d="M24 4C25.7818 14.2173 33.7827 22.2182 44 24C33.7827 25.7818 25.7818 33.7827 24 44C22.2182 33.7827 14.2173 25.7818 4 24C14.2173 22.2182 22.2182 14.2173 24 4Z" fill="currentColor"></path>
               </svg>
             </div>
-            <h2 className="text-white text-lg font-bold tracking-tight uppercase">Optivex</h2>
+            <h2 className="text-white text-lg font-bold tracking-tight uppercase">Senari</h2>
           </div>
           <div className="flex gap-8 text-white/40 text-sm">
             <a className="hover:text-primary transition-colors" href="#">Privacy Policy</a>
             <a className="hover:text-primary transition-colors" href="#">Terms of Service</a>
             <a className="hover:text-primary transition-colors" href="#">Cookie Policy</a>
           </div>
-          <p className="text-white/30 text-xs">© 2026 Optivex IT Solutions. All rights reserved.</p>
+          <p className="text-white/30 text-xs">© 2026 Senari Software Solutions. All rights reserved.</p>
         </div>
       </footer>
     </>

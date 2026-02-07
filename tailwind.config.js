@@ -15,7 +15,8 @@ export default {
         "slate-border": "#28392f",
       },
       fontFamily: {
-        "display": ["Manrope", "sans-serif"]
+        "montserrat": ['Montserrat', 'sans-serif'],
+        "display": ["Manrope", "sans-serif"],
       },
       borderRadius: {
         "lg": "1rem",

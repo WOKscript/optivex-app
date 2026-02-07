@@ -296,9 +296,9 @@ const Home = () => {
                 <h2 className="text-primary text-sm font-bold uppercase tracking-widest mb-3">Founders</h2>
                 <h3 className="text-white text-4xl lg:text-5xl font-black">Meet Our Visionaries</h3>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-10xl mx-auto">
                 <div className="bg-slate-surface border border-slate-border rounded-3xl p-8 flex flex-col lg:flex-row gap-8 hover:border-primary/30 transition-all group">
-                    <div className="size-32 lg:size-40 rounded-2xl overflow-hidden bg-background-dark shrink-0">
+                    <div className="size-38 lg:size-40 rounded-2xl overflow-hidden bg-background-dark shrink-0">
                         <img alt="Founder" className="w-full h-full object-cover" src="/images/cto-jp.png"/>
                     </div>
                     <div className="flex flex-col justify-between">
@@ -314,7 +314,71 @@ const Home = () => {
                     </div>
                 </div>
                 <div className="bg-slate-surface border border-slate-border rounded-3xl p-8 flex flex-col lg:flex-row gap-8 hover:border-primary/30 transition-all group">
-                    <div className="size-32 lg:size-40 rounded-2xl overflow-hidden bg-background-dark shrink-0">
+                    <div className="size-38 lg:size-40 rounded-2xl overflow-hidden bg-background-dark shrink-0">
+                        <img alt="Founder" className="w-full h-full object-cover" src="/images/ceo-lorenz.png"/>
+                    </div>
+                    <div className="flex flex-col justify-between">
+                        <div>
+                            <h4 className="text-2xl font-bold text-white mb-1">Lorenz Sabalza</h4>
+                            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-4">Co-Founder & CEO</p>
+                            <p className="text-white/60 text-sm leading-relaxed mb-6">A full-stack developer</p>
+                        </div>
+                        <div className="flex gap-4">
+                            <a className="text-primary hover:text-white transition-colors" href="#"><span className="material-symbols-outlined">link</span></a>
+                            <a className="text-primary hover:text-white transition-colors" href="#"><span className="material-symbols-outlined">alternate_email</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div className="bg-slate-surface border border-slate-border rounded-3xl p-8 flex flex-col lg:flex-row gap-8 hover:border-primary/30 transition-all group">
+                    <div className="size-38 lg:size-40 rounded-2xl overflow-hidden bg-background-dark shrink-0">
+                        <img alt="Founder" className="w-full h-full object-cover" src="/images/ceo-lorenz.png"/>
+                    </div>
+                    <div className="flex flex-col justify-between">
+                        <div>
+                            <h4 className="text-2xl font-bold text-white mb-1">Lorenz Sabalza</h4>
+                            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-4">Co-Founder & CEO</p>
+                            <p className="text-white/60 text-sm leading-relaxed mb-6">A full-stack developer</p>
+                        </div>
+                        <div className="flex gap-4">
+                            <a className="text-primary hover:text-white transition-colors" href="#"><span className="material-symbols-outlined">link</span></a>
+                            <a className="text-primary hover:text-white transition-colors" href="#"><span className="material-symbols-outlined">alternate_email</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div className="bg-slate-surface border border-slate-border rounded-3xl p-8 flex flex-col lg:flex-row gap-8 hover:border-primary/30 transition-all group">
+                    <div className="size-38 lg:size-40 rounded-2xl overflow-hidden bg-background-dark shrink-0">
+                        <img alt="Founder" className="w-full h-full object-cover" src="/images/ceo-lorenz.png"/>
+                    </div>
+                    <div className="flex flex-col justify-between">
+                        <div>
+                            <h4 className="text-2xl font-bold text-white mb-1">Lorenz Sabalza</h4>
+                            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-4">Co-Founder & CEO</p>
+                            <p className="text-white/60 text-sm leading-relaxed mb-6">A full-stack developer</p>
+                        </div>
+                        <div className="flex gap-4">
+                            <a className="text-primary hover:text-white transition-colors" href="#"><span className="material-symbols-outlined">link</span></a>
+                            <a className="text-primary hover:text-white transition-colors" href="#"><span className="material-symbols-outlined">alternate_email</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div className="bg-slate-surface border border-slate-border rounded-3xl p-8 flex flex-col lg:flex-row gap-8 hover:border-primary/30 transition-all group">
+                    <div className="size-38 lg:size-40 rounded-2xl overflow-hidden bg-background-dark shrink-0">
+                        <img alt="Founder" className="w-full h-full object-cover" src="/images/ceo-lorenz.png"/>
+                    </div>
+                    <div className="flex flex-col justify-between">
+                        <div>
+                            <h4 className="text-2xl font-bold text-white mb-1">Lorenz Sabalza</h4>
+                            <p className="text-primary text-sm font-bold uppercase tracking-widest mb-4">Co-Founder & CEO</p>
+                            <p className="text-white/60 text-sm leading-relaxed mb-6">A full-stack developer</p>
+                        </div>
+                        <div className="flex gap-4">
+                            <a className="text-primary hover:text-white transition-colors" href="#"><span className="material-symbols-outlined">link</span></a>
+                            <a className="text-primary hover:text-white transition-colors" href="#"><span className="material-symbols-outlined">alternate_email</span></a>
+                        </div>
+                    </div>
+                </div>
+                <div className="bg-slate-surface border border-slate-border rounded-3xl p-8 flex flex-col lg:flex-row gap-8 hover:border-primary/30 transition-all group">
+                    <div className="size-38 lg:size-40 rounded-2xl overflow-hidden bg-background-dark shrink-0">
                         <img alt="Founder" className="w-full h-full object-cover" src="/images/ceo-lorenz.png"/>
                     </div>
                     <div className="flex flex-col justify-between">
